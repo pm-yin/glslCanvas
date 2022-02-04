@@ -94,6 +94,8 @@ nav{
 	position: sticky; /*表頭*/
 	top: 0; /*滑到他的時候會頂在最上面*/
 	z-index:2000;
+
+	background-color: #101515;
 }
 
 nav li{
