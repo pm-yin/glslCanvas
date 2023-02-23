@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光影運算 | 演算美學實驗室 | Computing Aesthetics Lab</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <!--js-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+	<!--font awesome-->
+	<script src="https://kit.fontawesome.com/bade478ead.js" crossorigin="anonymous"></script>
+	<!-- Add fancyBox -->
+	<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+ 
+<body>
+<!---->
+<header>
+    <!--<h1><i class="fas fa-book-open ficon"></i></h1>-->
+    <div class="menu"><i class="fas fa-bars"></i></div>
+    <div class="totop page"><a href="#top"><i class="fas fa-angle-double-up page"></i></a></div>
+</header>
+
+<!--nav-->
+<nav>
+    <ul>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="https://cmhsieh.github.io/ComputingAestheticsLab/" target="_blank">ABOUT</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="美學運算.html">美學運算</a></li>
+        <li><a href="光影運算.html"><span style="color:rgba(207, 181, 59, 1)">光影運算</span></a></li>
+        <li><a href="量體運算.html">量體運算</a></li>
+    </ul>
+</nav>
+
+
+
+<!--section-->
+<section>
+<div class="page" id="top">   
+<br><br>
+<h1>光影運算</h1>
+<br>
+Topics on Shading and Lighting
+<br><br>
+<p style="text-align: left; margin: 10%;">
+<span style="font-weight:600;">課程概述與目標：</span>
+本課程延續美學運算課程，
+(一)持續OpenGL shading language(GLSL)，並進階為三維空間、光線追蹤、陰影計算。實作範例，(1) 給予米洛維納斯數位模型，進行各種材質表現，(2) 以米洛維納斯模型，學習光影表現技法，包含林布蘭照明技法、phong shading model，(3) Subsurface scattering表現技法，Hanrahan–Krueger model of subsurface scattering，包含冰雪玻璃等表現 (4) Non-photorealistic illumination models表現技法。
+(二)深化Generative Art並著墨於人工生命之論述與實踐，(1)整合Boids system與Voronoi diagram，(2)結合細胞自動機等機制藉以拓增粒子系統之仿生行為。
+</p>
+
+
+
+</div> 
+</section>
+
+<!--footer-->
+<footer>
+&copy;2022 演算美學實驗室 | The Computing Aesthetics Lab
+</footer>
+
+</body>
+</html>
