@@ -66,6 +66,8 @@
 Computational Aesthetics
 <br><br>
 
+<span style="font-size: 14px;">*本頁建議使用pc觀看喔!*</span>
+
 <div class="page" id="top" >
     <div class="row">
         <div class="col-m-12 col-12"><p style="font-size: 24px; margin-top: 5%; font-style: italic; text-align: left;">Fundamentals</p></div>
@@ -786,20 +788,8 @@ Computational Aesthetics
         <div class="col-m-12 col-12">
             <p style="font-size: 24px; margin-top: 5%; font-style: italic; text-align: left;">IV. Filter Style</p>
             <br>
-            <p style="font-size: 20px; font-style: italic; text-align: left;">> common functions</p>
+            <p style="font-size: 20px; font-style: italic; text-align: left;">> Halftone</p>
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-m-12 col-12">
-            <pre style="font-size: 16px; text-align: left;"><code>
-    
-            </code></pre>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-m-12 col-12"><p style="font-size: 20px; margin-top: 5%; font-style: italic; text-align: left;">> Halftone</p>
     </div>
     
     <div class="row">
@@ -807,6 +797,9 @@ Computational Aesthetics
             <pre style="font-size: 16px; text-align: left;"><code>
     
             </code></pre>
+        </div>
+        <div class="col-m-12 col-4">
+            <img src="images/美學運算/15.png">
         </div>
     </div>
 
@@ -817,23 +810,67 @@ Computational Aesthetics
     <div class="row">
         <div class="col-m-12 col-8">
             <pre style="font-size: 16px; text-align: left;"><code>
-    
+    uniform sampler2D u_tex0;// img
+    uniform sampler2D u_tex1;
+    uniform sampler2D u_tex2;
+    uniform sampler2D u_tex3;
+    uniform sampler2D u_tex4;
+    uniform sampler2D u_tex5;
+    uniform sampler2D u_tex6;
+    uniform sampler2D u_tex7;// video
             </code></pre>
+        </div>
+        <div class="col-m-12 col-4">
+            <img src="images/美學運算/16.png">
         </div>
     </div>
 
     <div class="row">
-        <div class="col-m-12 col-12"><p style="font-size: 20px; margin-top: 5%; font-style: italic; text-align: left;">> Voronoi</p>
-    </div>
-    
-    <div class="row">
-        <div class="col-m-12 col-8">
+        <div class="col-m-12 col-12">
             <pre style="font-size: 16px; text-align: left;"><code>
+    void main()
+    {
+        vec2 uv = gl_FragCoord.xy/u_resolution.xy;   
+        //uv *=  u_resolution.x / u_resolution.y;
     
+    
+        // vec2 vUv=fract(6.0*uv);   
+        vec2 vUv=fract(1.0*uv);                    
+        float shading= texture2D(u_tex0, uv).g; 
+    
+    
+        vec4 c;
+    
+        float step = 1. / 6.;
+        if( shading <= step ){   
+            c = mix( texture2D( u_tex6, vUv ), texture2D( u_tex5, vUv ), 6. * shading );
+        }
+        if( shading > step && shading <= 2. * step ){
+            c = mix( texture2D( u_tex5, vUv ), texture2D( u_tex4, vUv) , 6. * ( shading - step ) );
+        }
+        if( shading > 2. * step && shading <= 3. * step ){
+            c = mix( texture2D( u_tex4, vUv ), texture2D( u_tex3, vUv ), 6. * ( shading - 2. * step ) );
+        }
+        if( shading > 3. * step && shading <= 4. * step ){
+            c = mix( texture2D( u_tex3, vUv ), texture2D( u_tex2, vUv ), 6. * ( shading - 3. * step ) );
+        }
+        if( shading > 4. * step && shading <= 5. * step ){
+            c = mix( texture2D( u_tex2, vUv ), texture2D( u_tex1, vUv ), 6. * ( shading - 4. * step ) );
+        }
+        if( shading > 5. * step ){
+            c = mix( texture2D( u_tex1, vUv ), vec4( 1. ), 6. * ( shading - 5. * step ) );
+        }
+                    
+    
+        // vec4 inkColor = vec4(0.0, 0.0, 1.0, 1.0);
+        vec4 inkColor = vec4(0.0, 0.0, 1.0, 0.0);
+        vec4 src = mix( mix( inkColor, vec4( 1. ), c.r ), c, .5 );
+        gl_FragColor = src;
+    }
             </code></pre>
         </div>
+        
     </div>
-
 </div>
 
 
