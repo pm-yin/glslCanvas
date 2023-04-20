@@ -9,6 +9,8 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="html/js/index.js"></script>
     <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<!--font awesome-->
 	<script src="https://kit.fontawesome.com/bade478ead.js" crossorigin="anonymous"></script>
 	<!-- Add fancyBox -->
@@ -55,7 +57,11 @@
 
 <!--section-->
 <section>    
-<div class="page" id="top">    
+<div class="page" id="top">  
+
+
+
+    
 <h1>演算美學實驗室 | Computing Aesthetics Lab</h1>
 <p>
     <br>
@@ -119,6 +125,21 @@
 <footer>
 &copy;2022 演算美學實驗室 | The Computing Aesthetics Lab
 </footer>
+
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+</script>
+
+
 
 </body>
 </html>

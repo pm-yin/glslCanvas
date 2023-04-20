@@ -1,11 +1,11 @@
 // JavaScript Document
 $(document).ready(function(){    
     
-    $(".menu").click(function(){ 
-    
-        $("nav").slideToggle();
-        
-    });
+  $(".menu").click(function(){ 
+  
+      $("nav").slideToggle();
+      
+  });
 	
 	$(window).on('load resize',function(){
 		
@@ -65,5 +65,7 @@ $(document).ready(function(){
       });
     } // End if
   });
+
 });
+
 
