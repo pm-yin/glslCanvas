@@ -39,5 +39,9 @@
 
   a {
     color: hsl(var(--color-neutral-000));
+
+    &::after {
+      display: none;
+    }
   }
 }
