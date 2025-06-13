@@ -2,11 +2,13 @@
 import Navbar from "./Navbar.tsx";
 import styles from "./header.module.scss";
 import { SITE } from "@/config";
+
+const base = import.meta.env.BASE_URL || "/";
 ---
 
 <header>
   <div class={styles.title}>
-    <a href="/">{SITE.title}</a>
+    <a href={`${base}/`}>{SITE.title}</a>
   </div>
   <Navbar client:load />
 </header>

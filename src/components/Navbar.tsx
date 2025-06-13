@@ -2,18 +2,18 @@ import styles from "./navbar.module.scss";
 import { useState } from "react";
 import { AlignRight, X } from "lucide-react";
 
-
+const base = import.meta.env.BASE_URL || "/";
 const navItems = {
-  '/craft': {
+  [`${base}/craft`]: {
     title: 'Craft',
   },
-  '/resources': {
+  [`${base}/resources`]: {
     title: 'Resources',
   },
-  '/about': {
+  [`${base}/about`]: {
     title: 'About',
   },
-}
+};
 
 export default function Navbar({ }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

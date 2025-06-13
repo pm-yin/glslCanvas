@@ -16,6 +16,8 @@ const groupedPosts = allCraftPosts.reduce(
   },
   {} as Record<string, typeof allCraftPosts>,
 );
+
+const base = import.meta.env.BASE_URL || "/";
 ---
 
 <div class={styles.container}>
@@ -28,7 +30,7 @@ const groupedPosts = allCraftPosts.reduce(
         <ul class={styles.list} id={`craft-list-${category}`}>
           {posts.map((post) => (
             <li>
-              <a href={`/craft/${post.id}`}>
+              <a href={`${base}/craft/${post.id}`}>
                 <CraftCard
                   heroImage={post.data.heroImage}
                   title={post.data.title}
