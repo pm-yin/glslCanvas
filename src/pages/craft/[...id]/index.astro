@@ -1,0 +1,177 @@
+---
+import styles from "./_page.module.scss";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import Header from "@/components/Header.astro";
+import GLSLCanvas from "@/components/GLSLCanvas";
+import Footer from "@/components/Footer.astro";
+import { generateFragmentString } from "./_utils";
+import CodeBlock from "@/components/CodeBlock.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("craft");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fragmentString = await generateFragmentString(post.data.shader);
+---
+
+<Layout>
+  <Header />
+  <div class={styles.head_section}>
+    <GLSLCanvas
+      fragmentString={fragmentString}
+      textures={post.data.shader?.textures}
+      className={styles.canvas_container}
+      client:load
+    />
+  </div>
+  <div class={styles.container}>
+    <main>
+      <h1>{post.data.title}</h1>
+      <p>{post.data.description}</p>
+      <CodeBlock codeString={fragmentString} />
+      <article class="prose">
+        <Content />
+      </article>
+    </main>
+  </div>
+  <Footer />
+</Layout>
+
+<style is:global>
+  .prose {
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      margin-top: 40px;
+      padding-bottom: 10px;
+      font-size: 2rem;
+      font-weight: semibold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h3 {
+      margin-top: 32px;
+      font-size: 1.75rem;
+      font-weight: semibold;
+    }
+
+    h4 {
+      margin-top: 32px;
+      font-size: 1.5rem;
+      font-weight: semibold;
+    }
+
+    h5 {
+      margin-top: 32px;
+      font-size: 1.25rem;
+      font-weight: semibold;
+    }
+
+    h6 {
+      margin-top: 32px;
+      font-size: 1rem;
+      font-weight: semibold;
+    }
+
+    a {
+      font-weight: medium;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    p {
+      line-height: 1.75;
+      margin-top: 24px;
+    }
+
+    ul {
+      margin-top: 24px;
+      margin-left: 24px;
+      list-style-type: disc;
+    }
+
+    ol {
+      margin-top: 24px;
+      margin-left: 24px;
+      list-style-type: decimal;
+    }
+
+    li {
+      margin-top: 8px;
+    }
+
+    blockquote {
+      margin-top: 24px;
+      border-left: 2px solid #ddd;
+      padding-left: 24px;
+      font-style: italic;
+    }
+
+    img {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    hr {
+      margin: 24px 0;
+    }
+
+    .tableContainer {
+      margin-top: 24px;
+      width: 100%;
+      overflow-y: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    tr {
+      border-top: 1px solid #ddd;
+    }
+
+    th {
+      padding: 8px;
+      text-align: left;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    pre {
+      margin: 24px 0;
+      padding: 16px;
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    :not(pre) > code {
+      padding: 2px 4px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.875rem;
+    }
+  }
+</style>

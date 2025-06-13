@@ -1,0 +1,13 @@
+---
+import { codeToHtml } from "shiki";
+
+const { codeString } = Astro.props;
+
+// 直接在 server-side 產生 syntax highlight HTML
+const codeHtml = await codeToHtml(codeString, {
+  lang: "glsl",
+  theme: "nord",
+});
+---
+
+<div class="prose" set:html={codeHtml} />
