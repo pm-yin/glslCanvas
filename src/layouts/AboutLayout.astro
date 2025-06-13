@@ -18,7 +18,8 @@ import Footer from "@/components/Footer.astro";
   <Footer />
 </Layout>
 
-<style>
+<style lang="scss">
+  @use "@/styles/breakpoints.scss";
   .container {
     max-width: breakpoints.$md;
     margin: 100px var(--spacing-xl);
