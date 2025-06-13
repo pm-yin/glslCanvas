@@ -1,5 +1,5 @@
 ---
-import Navbar from "./Navbar.astro";
+import Navbar from "./Navbar.tsx";
 import styles from "./header.module.scss";
 import { SITE } from "@/config";
 ---
@@ -8,5 +8,5 @@ import { SITE } from "@/config";
   <div class={styles.title}>
     <a href="/">{SITE.title}</a>
   </div>
-  <Navbar />
+  <Navbar client:load />
 </header>
