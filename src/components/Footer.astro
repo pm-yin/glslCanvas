@@ -1,0 +1,35 @@
+---
+import styles from "./footer.module.scss";
+---
+
+<footer class={styles.footer}>
+  <p>
+    © {new Date().getFullYear()} MIT Licensed
+  </p>
+  <ul>
+    <li>
+      <a
+        href="https://cmhsieh.github.io/ComputingAestheticsLab/"
+        target="_blank"
+        class={styles.footer_link}
+        rel="noopener noreferrer"
+      >
+        <p>演算美學實驗室</p>
+        <!-- 替換 lucide-react icon 為 SVG -->
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M13 5h6v6"></path>
+          <path d="M7 19 19 7"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</footer>

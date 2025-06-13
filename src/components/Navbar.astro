@@ -1,0 +1,65 @@
+---
+// filepath: src/components/Navbar.astro
+import styles from "./navbar.module.scss";
+
+const navItems = {
+  "/craft": { title: "Craft" },
+  "/resources": { title: "Resources" },
+  "/about": { title: "About" },
+};
+
+// Astro 沒有 React 狀態，需用前端 JS 控制 menu 開關
+---
+
+<nav class={styles.nav} id="navbar">
+  <button
+    class={styles.menu_button}
+    aria-label="Toggle menu"
+    type="button"
+    onclick="document.getElementById('nav_menu').classList.toggle('open');"
+  >
+    <span class="icon" id="menu_icon">&#9776;</span>
+    <span class="icon" id="close_icon" style="display:none;">&#10005;</span>
+  </button>
+  <div class={styles.nav_menu} id="nav_menu">
+    {
+      Object.entries(navItems).map(([path, { title }]) => (
+        <a
+          href={path}
+          onclick="document.getElementById('nav_menu').classList.remove('open');"
+        >
+          {title}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  // 切換 icon
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector('button[aria-label="Toggle menu"]');
+    const navMenu = document.getElementById("nav_menu");
+    const menuIcon = document.getElementById("menu_icon");
+    const closeIcon = document.getElementById("close_icon");
+
+    if (!menuBtn || !navMenu || !menuIcon || !closeIcon) {
+      console.error("Navbar elements not found");
+      return;
+    }
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navMenu.classList.contains("open");
+      menuIcon.style.display = isOpen ? "none" : "";
+      closeIcon.style.display = isOpen ? "" : "none";
+    });
+    // 點選連結自動關閉選單
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        menuIcon.style.display = "";
+        closeIcon.style.display = "none";
+      });
+    });
+  });
+</script>

@@ -1,0 +1,12 @@
+---
+import Navbar from "./Navbar.astro";
+import styles from "./header.module.scss";
+import { SITE } from "../../config";
+---
+
+<header>
+  <div class={styles.title}>
+    <a href="/">{SITE.title}</a>
+  </div>
+  <Navbar />
+</header>

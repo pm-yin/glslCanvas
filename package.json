@@ -13,7 +13,10 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "astro": "^5.9.2",
+    "glslCanvas": "github:Yuan0100/glslCanvas",
+    "glslify": "^7.1.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "sass": "^1.89.2"
   }
 }
