@@ -1,0 +1,25 @@
+---
+import Image from "astro/components/Image.astro";
+import styles from "./craft-card.module.scss";
+
+const { heroImage, title } = Astro.props;
+---
+
+<div class={styles.container}>
+  <div class={`thumb_area ${styles.thumb_area}`}>
+    {
+      heroImage && (
+        <Image
+          src={heroImage}
+          alt={title}
+          width="300"
+          height="300"
+          loading="lazy"
+        />
+      )
+    }
+    <div class={styles.title}>
+      <span>{title}</span>
+    </div>
+  </div>
+</div>
