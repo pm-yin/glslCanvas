@@ -1,0 +1,26 @@
+---
+import Header from "@/components/Header.astro";
+import Layout from "./Layout.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <div class="container">
+      <h1>About</h1>
+      <br />
+      <article class="prose">
+        <slot />
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .container {
+    max-width: breakpoints.$md;
+    margin: 100px var(--spacing-xl);
+  }
+</style>
