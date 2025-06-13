@@ -5,41 +5,21 @@ import { getCollection } from "astro:content";
 
 const allCraftPosts = await getCollection("craft");
 
-console.log(allCraftPosts[0].data);
-
-// const posts = allCraftPosts.map((post) => ({
-//   ...post.metadata,
-//   slug: post.slug,
-// }));
-
-// // Group posts by category
-// const groupedPosts = posts.reduce(
-//   (acc, post) => {
-//     const category = post.category || "Uncategorized";
-//     if (!acc[category]) acc[category] = [];
-//     acc[category].push(post);
-//     return acc;
-//   },
-//   {} as Record<string, typeof posts>,
-// );
+// 依據 id 的第一段分組
+const groupedPosts = allCraftPosts.reduce(
+  (acc, post) => {
+    const [category] = post.id.split("/");
+    const cat = category || "Uncategorized";
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(post);
+    return acc;
+  },
+  {} as Record<string, typeof allCraftPosts>,
+);
 ---
 
 <div class={styles.container}>
-  <ul class={styles.list}>
-    {
-      allCraftPosts.map((post) => (
-        <li>
-          <a href={`/craft/${post.id}`}>
-            <CraftCard
-              heroImage={post.data.heroImage}
-              title={post.data.title}
-            />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <!-- {
+  {
     Object.entries(groupedPosts).map(([category, posts]) => (
       <div class={styles.list_section}>
         <h2 class={styles.section_title}>
@@ -48,13 +28,16 @@ console.log(allCraftPosts[0].data);
         <ul class={styles.list} id={`craft-list-${category}`}>
           {posts.map((post) => (
             <li>
-              <a href={`/craft/${post.slug}`}>
-                <CraftCard heroImage={post.heroImage} title={post.title} />
+              <a href={`/craft/${post.id}`}>
+                <CraftCard
+                  heroImage={post.data.heroImage}
+                  title={post.data.title}
+                />
               </a>
             </li>
           ))}
         </ul>
       </div>
     ))
-  } -->
+  }
 </div>
