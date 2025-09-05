@@ -1,0 +1,29 @@
+---
+import styles from "./showcase-list.module.scss";
+import { getCollection } from "astro:content";
+import ShowcaseCard from "./ShowcaseCard.astro";
+
+const allShowcasePosts = await getCollection("showcase");
+
+const base = import.meta.env.BASE_URL || "/";
+---
+
+<div class={styles.container}>
+  <div class={styles.list_section}>
+    <h2 class={styles.section_title}>2022 秋｜光影運算</h2>
+    <ul class={styles.list} id="showcase-list">
+      {
+        allShowcasePosts.map((post) => (
+          <li>
+            <a href={`${base}/showcase/${post.id}`}>
+              <ShowcaseCard
+                heroImage={post.data.heroImage}
+                title={post.data.title}
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
