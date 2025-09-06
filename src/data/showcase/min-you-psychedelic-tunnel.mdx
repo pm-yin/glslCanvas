@@ -1,0 +1,102 @@
+---
+title: "迷幻穿梭效果"
+author: "洪敏祐"
+pubDate: "2022-09-01"
+heroImage: "./images/min-you-psychedelic-tunnel/0.png"
+---
+import Flex from '@/components/mdx/Flex';
+import Box from '@/components/mdx/Box';
+import Button from '@/components/mdx/Button';
+import { Image } from 'astro:assets';
+
+import img_1 from './images/min-you-psychedelic-tunnel/2-1.png';
+import img_2 from './images/min-you-psychedelic-tunnel/3-1.png';
+import img_3 from './images/min-you-psychedelic-tunnel/3-2.png';
+import img_4 from './images/min-you-psychedelic-tunnel/4-1.png';
+import img_5 from './images/min-you-psychedelic-tunnel/4-2.png';
+import img_6 from './images/min-you-psychedelic-tunnel/4-3.png';
+import img_7 from './images/min-you-psychedelic-tunnel/5-1.png';
+import img_8 from './images/min-you-psychedelic-tunnel/5-2.png';
+import img_9 from './images/min-you-psychedelic-tunnel/5-3.png';
+import img_10 from './images/min-you-psychedelic-tunnel/5-4.png';
+import img_11 from './images/min-you-psychedelic-tunnel/6-1.png';
+import img_12 from './images/min-you-psychedelic-tunnel/7-1.png';
+import img_13 from './images/min-you-psychedelic-tunnel/7-2.png';
+import img_14 from './images/min-you-psychedelic-tunnel/8.png';
+import img_15 from './images/min-you-psychedelic-tunnel/9.png';
+
+<Flex justify="center">
+  <Box style={{padding: '1rem', maxWidth: '450px'}}>
+    <Image src={img_1} alt="2-1" />
+    <Button variant="outline" as="a" href="https://www.shadertoy.com/view/ldfGWn" target="_blank" style={{marginTop: '0.5rem', width: '100%'}}>模型來源</Button>
+  </Box>
+</Flex>
+
+### 透過調整trace迴圈次數製造模糊效果
+
+<Flex gap="1rem">
+  <Box>
+    <Image src={img_2} alt="3-1" />
+  </Box>
+  <Box>
+    <Image src={img_3} alt="3-2" />
+  </Box>
+</Flex>
+
+### 遠處的地方較模糊，透過調整trace迴圈次數
+
+<Flex>
+  <Box>
+    <Image src={img_4} alt="4-1" />
+  </Box>
+  <Box>
+    <Image src={img_5} alt="4-2" />
+  </Box>
+  <Box>
+    <Image src={img_6} alt="4-3" />
+  </Box>
+</Flex>
+
+### 類似體積霧的效果，遠的地方比較霧
+
+<Flex>
+  <Box>
+    <Image src={img_7} alt="5-1" />
+  </Box>
+  <Box>
+    <Image src={img_8} alt="5-2" />
+  </Box>
+  <Box>
+    <Image src={img_9} alt="5-3" />
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <Image src={img_10} alt="5-4" />
+  </Box>
+</Flex>
+
+<Flex>
+  <Flex direction="column" gap="0.5rem" style={{padding: 0}}>
+    <Image src={img_11} alt="6-1" />
+    <Button variant="outline" as="a" href="https://www.shadertoy.com/view/MdXSWn" target="_blank">相機運動</Button>
+  </Flex>
+  <Box>
+    <Image src={img_12} alt="6-2" />
+  </Box>
+  <Box>
+    <Image src={img_13} alt="6-3" />
+  </Box>
+</Flex>
+
+### Final
+
+<Flex>
+  <Box>
+    <Image src={img_14} alt="7-1" />
+  </Box>
+  <Box>
+    <Image src={img_15} alt="7-2" />
+  </Box>
+</Flex>

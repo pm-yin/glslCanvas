@@ -21,7 +21,7 @@ const craft = defineCollection({
 });
 
 const showcase = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: `./${SHOWCASE_PATH}` }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: `./${SHOWCASE_PATH}` }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
