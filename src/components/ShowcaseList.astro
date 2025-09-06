@@ -4,6 +4,9 @@ import { getCollection } from "astro:content";
 import ShowcaseCard from "./ShowcaseCard.astro";
 
 const allShowcasePosts = await getCollection("showcase");
+const sortedShowcasePosts = allShowcasePosts.sort((a, b) =>
+  a.id.localeCompare(b.id),
+);
 
 const base = import.meta.env.BASE_URL || "/";
 ---
@@ -13,7 +16,7 @@ const base = import.meta.env.BASE_URL || "/";
     <h2 class={styles.section_title}>2022 秋｜光影運算</h2>
     <ul class={styles.list} id="showcase-list">
       {
-        allShowcasePosts.map((post) => (
+        sortedShowcasePosts.map((post) => (
           <li>
             <a href={`${base}/showcase/${post.id}`}>
               <ShowcaseCard
