@@ -26,9 +26,10 @@ const showcase = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().optional(),
-      author: z.string(),
+      creator: z.string(),
       pubDate: z.coerce.date(),
       heroImage: image().or(z.string()).optional(),
+      demoUrl: z.string().url().optional(),
     }),
 });
 

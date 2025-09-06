@@ -1,0 +1,229 @@
+---
+title: "DUNE"
+creator: "李芸蓁"
+pubDate: "2022-09-01"
+heroImage: "./images/yun-jen-dune/0.png"
+---
+import Flex from '@/components/mdx/Flex';
+import Box from '@/components/mdx/Box';
+import { Image } from 'astro:assets';
+
+import img_1 from './images/yun-jen-dune/1.png';
+import img_2 from './images/yun-jen-dune/2-1.png';
+import img_3 from './images/yun-jen-dune/2-2.png';
+import img_4 from './images/yun-jen-dune/3-1.png';
+import img_5 from './images/yun-jen-dune/3-2.png';
+import img_6 from './images/yun-jen-dune/3-3.png';
+import img_7 from './images/yun-jen-dune/4-1.png';
+import img_8 from './images/yun-jen-dune/4-2.png';
+import img_9 from './images/yun-jen-dune/4-3.png';
+import img_10 from './images/yun-jen-dune/5-1.png';
+import img_11 from './images/yun-jen-dune/5-2.png';
+import img_12 from './images/yun-jen-dune/5-3.png';
+import img_13 from './images/yun-jen-dune/6-1.png';
+import img_14 from './images/yun-jen-dune/6-2.png';
+import img_15 from './images/yun-jen-dune/6-3.png';
+import img_16 from './images/yun-jen-dune/7-1.png';
+import img_17 from './images/yun-jen-dune/7-2.png';
+import img_18 from './images/yun-jen-dune/7-3.png';
+import img_19 from './images/yun-jen-dune/8-1.gif';
+import img_20 from './images/yun-jen-dune/8-2.gif';
+import img_21 from './images/yun-jen-dune/9.gif';
+import img_22 from './images/yun-jen-dune/10.gif';
+import img_23 from './images/yun-jen-dune/11.gif';
+import img_24 from './images/yun-jen-dune/12-1.png';
+import img_25 from './images/yun-jen-dune/12-2.png';
+import img_26 from './images/yun-jen-dune/12-3.png';
+
+<Image src={img_1} alt="1" />
+
+### Ridged Noise
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_2} alt="2-1"/>
+      <figcaption>v=simplex(p)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_3} alt="2-2"/>
+      <figcaption>abs(v)</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_4} alt="3-1"/>
+      <figcaption>1.0-abs(v-0.5)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_5} alt="3-2"/>
+      <figcaption>pow(1.0-abs(v-0.5),3.0)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_6} alt="3-3"/>
+      <figcaption>pow(1.0-abs(v-0.5),10.0)</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Simplex Noise
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_7} alt="4-1"/>
+      <figcaption>st*2.0</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_8} alt="4-2"/>
+      <figcaption>st*5.0</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_9} alt="4-3"/>
+      <figcaption>st*10.0</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Random Noise
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_10} alt="5-1"/>
+      <figcaption>OCTAVES 1</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_11} alt="5-2"/>
+      <figcaption>OCTAVES 3</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_12} alt="5-3"/>
+      <figcaption>ridged</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Ridged Noise on Shape
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_13} alt="6-1"/>
+      <figcaption>sdBox</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_14} alt="6-2"/>
+      <figcaption>sdBox+v*0.2</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_15} alt="6-3"/>
+      <figcaption>sdBox+v</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Shading
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_16} alt="7-1"/>
+      <figcaption>AO+fog</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_17} alt="7-2"/>
+      <figcaption>AO+fog</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_18} alt="7-3"/>
+      <figcaption>AO+fog+FlameColour</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Animation
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_19} alt="8-1"/>
+      <figcaption>+vec2(0.0,u_time/30.0)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_20} alt="8-2"/>
+      <figcaption>+vec2(u_time/30.0)</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_21} alt="9"/>
+      <figcaption>cam0</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_22} alt="10"/>
+      <figcaption>cam1</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_23} alt="11"/>
+      <figcaption>cam2</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Other Style
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_24} alt="12-1"/>
+      <figcaption>color2</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_25} alt="12-2"/>
+      <figcaption>color1</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_26} alt="12-3"/>
+      <figcaption>textureReflect</figcaption>
+    </figure>
+  </Box>
+</Flex>

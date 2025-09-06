@@ -1,0 +1,100 @@
+---
+title: "Rembrandt Lighting"
+creator: "呂思函"
+pubDate: "2022-09-01"
+heroImage: "./images/sz-han-rembrandt/0.png"
+---
+import Button from '@/components/mdx/Button';
+import Flex from '@/components/mdx/Flex';
+import Box from '@/components/mdx/Box';
+import { Image } from 'astro:assets';
+
+import img_bg from './images/sz-han-rembrandt/10.png';
+import img_0 from './images/sz-han-rembrandt/0.png';
+import img_1 from './images/sz-han-rembrandt/5.png';
+import img_2 from './images/sz-han-rembrandt/6.png';
+import img_3 from './images/sz-han-rembrandt/7.png';
+import img_4 from './images/sz-han-rembrandt/10.png';
+
+<div style={{
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    height: '100svh',
+    minWidth: '1px', // 讓 div 有寬度
+    width: '100vw',  // 讓 div 橫向撐滿螢幕
+    backgroundImage: `url(${img_bg.src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'auto 100svh', // 高度撐滿，寬度依比例
+    backgroundPosition: 'left center',
+    zIndex: -1,
+    opacity: '0.5'
+}} />
+
+<Flex>
+  <Box>
+    <h3>"Chiaroscuro"<br />「明暗分明」</h3>
+  </Box>
+  <Box>
+    <h3>Rembrandt Lighting<br />林布蘭打燈</h3>
+  </Box>
+</Flex>
+
+## What is Chiaroscuro?
+
+**Origin**
+
+A method of painting which imparts a sense of very directional light falling on the subject.
+
+**Usage**
+
+The light source was often singular and resulted in dark shadows and backgrounds with the overall scene being highly contrasted between lights and darks.
+
+## Three-point lighting
+
+<Image src={img_1} alt="Three-point lighting" style={{maxWidth: '50%'}} />
+
+Three-point lighting is a standard method used in visual media such as theatre, video, film, still photography, computer-generated imagery and 3D computer graphics.
+
+By using three separate positions, the photographer can illuminate the shot's subject (such as a person) however desired, while also controlling (or eliminating entirely) the shading and shadows produced by direct lighting.
+
+➡️ Four-point lighting
+
+<Image src={img_2} alt="Four-point lighting" style={{maxWidth: '50%'}} />
+
+## Rembrandt lighting
+
+<Image src={img_3} alt="Rembrandt lighting" style={{maxWidth: '50%'}} />
+
+## References
+
+- [How to Achieve Artistic Chiaroscuro Lighting in Photography](https://expertphotography.com/chiaroscuro-lighting/#:~:text=Window%20light%20is%20the%20most,the%20only%20source%20of%20light.)
+- [Decoding Chiaroscuro: How To Shoot Glorious Clair Obscur Photos?](https://contrastly.com/decoding-chiaroscuro/)
+- [What Is Rembrandt Lighting and How To Use It in Your Portrait Photography](https://www.format.com/magazine/resources/photography/rembrandt-lighting#:~:text=At%20its%20most%20basic%2C%20Rembrandt,farthest%20away%20from%20the%20camera.)
+- [Introduction to GLSL in TouchDesigner : 1/8 Introduction and GLSL TOP overview.](https://www.youtube.com/watch?v=PVTZfDI6_OQ&list=PL5zzMHjnPWS03e_t7jik_-stynirBRrPc&index=3)
+- [PBR and 3D Workflows](https://www.youtube.com/watch?v=JZ8gU13DwBI)
+- [Head](https://www.shadertoy.com/view/wlf3WX)
+
+{/* <Flex>
+  <Box>
+    <h3>"Chiaroscuro"<br />「明暗分明」</h3>
+  </Box>
+  <Box>
+    <h3>Rembrandt Lighting<br />林布蘭打燈</h3>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <h3>What Is<br />Chiaroscuro?</h3>
+  </Box>
+  <Box>
+    **Origin**
+
+    A method of painting which imparts a sense of very directional light falling on the subject.
+    
+    **Usage**
+
+   The light source was often singular and resulted in dark shadows and backgrounds with the overall scene being highly contrasted between lights and darks.
+  </Box>
+</Flex> */}

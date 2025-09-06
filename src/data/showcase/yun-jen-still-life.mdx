@@ -1,0 +1,375 @@
+---
+title: "Still Life"
+creator: "李芸蓁"
+pubDate: "2022-09-01"
+heroImage: "./images/yun-jen-still-life/0.png"
+demoUrl: "https://yunchen-lee.github.io/HSAA30062_p5shader_stillLife/"
+---
+import Flex from '@/components/mdx/Flex';
+import Box from '@/components/mdx/Box';
+import Button from '@/components/mdx/Button';
+import { Image } from 'astro:assets';
+
+import img_1 from './images/yun-jen-still-life/1.png';
+import img_2 from './images/yun-jen-still-life/2-1.png';
+import img_3 from './images/yun-jen-still-life/2-2.png';
+import img_4 from './images/yun-jen-still-life/3-1.png';
+import img_5 from './images/yun-jen-still-life/3-2.png';
+import img_6 from './images/yun-jen-still-life/4.png';
+import img_7 from './images/yun-jen-still-life/5.png';
+import img_8 from './images/yun-jen-still-life/6.png';
+import img_9 from './images/yun-jen-still-life/7.png';
+import img_10 from './images/yun-jen-still-life/8-1.png';
+import img_11 from './images/yun-jen-still-life/8-2.png';
+import img_12 from './images/yun-jen-still-life/9-1.png';
+import img_13 from './images/yun-jen-still-life/9-2.png';
+import img_14 from './images/yun-jen-still-life/9-3.png';
+import img_15 from './images/yun-jen-still-life/10-1.png';
+import img_16 from './images/yun-jen-still-life/10-2.png';
+import img_17 from './images/yun-jen-still-life/10-3.png';
+import img_18 from './images/yun-jen-still-life/11-1.png';
+import img_19 from './images/yun-jen-still-life/11-2.png';
+import img_20 from './images/yun-jen-still-life/12-1.png';
+import img_21 from './images/yun-jen-still-life/12-2.png';
+import img_22 from './images/yun-jen-still-life/13-1.png';
+import img_23 from './images/yun-jen-still-life/13-2.png';
+import img_24 from './images/yun-jen-still-life/14.gif';
+import img_25 from './images/yun-jen-still-life/15.gif';
+import img_26 from './images/yun-jen-still-life/16.gif';
+import img_27 from './images/yun-jen-still-life/17.gif';
+import img_28 from './images/yun-jen-still-life/18.gif';
+import img_29 from './images/yun-jen-still-life/19.gif';
+import img_30 from './images/yun-jen-still-life/21-1.jpg';
+import img_31 from './images/yun-jen-still-life/21-2.png';
+import img_32 from './images/yun-jen-still-life/22.png';
+import img_33 from './images/yun-jen-still-life/23.jpg';
+import img_34 from './images/yun-jen-still-life/24-1.png';
+import img_35 from './images/yun-jen-still-life/24-2.png';
+import img_36 from './images/yun-jen-still-life/25-1.png';
+import img_37 from './images/yun-jen-still-life/25-2.png';
+import img_38 from './images/yun-jen-still-life/25-3.png';
+import img_39 from './images/yun-jen-still-life/26-1.png';
+import img_40 from './images/yun-jen-still-life/26-2.png';
+import img_41 from './images/yun-jen-still-life/26-3.png';
+import img_42 from './images/yun-jen-still-life/27-1.png';
+import img_43 from './images/yun-jen-still-life/27-2.png';
+import img_44 from './images/yun-jen-still-life/27-3.png';
+import img_45 from './images/yun-jen-still-life/28-1.png';
+import img_46 from './images/yun-jen-still-life/28-2.png';
+import img_47 from './images/yun-jen-still-life/29-1.png';
+import img_48 from './images/yun-jen-still-life/29-2.png';
+import img_49 from './images/yun-jen-still-life/29-3.png';
+import img_50 from './images/yun-jen-still-life/30-1.png';
+import img_51 from './images/yun-jen-still-life/30-2.png';
+import img_52 from './images/yun-jen-still-life/30-3.png';
+
+{/* <Button 
+  as='a' 
+  href="https://yunchen-lee.github.io/HSAA30062_p5shader_stillLife/"
+  target="_blank"
+  rel="noopener noreferrer"  
+  variant="primary"
+>
+  <>Demo on GitHub</>
+</Button> */}
+
+<Image src={img_1} alt="Still Life 1" />
+
+## Concept
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_2} alt="phong shading model"/>
+      <figcaption>phong shading model</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_3} alt="pixel style"/>
+      <figcaption>pixel style</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_4} alt="still life"/>
+      <figcaption>still life</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_5} alt="oil painting"/>
+      <figcaption>oil painting</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+## Tool
+
+
+<Image src={img_6} alt="Tool" style={{ backgroundColor: 'hsl(var(--color-neutral-900))' }}/>
+
+### Tool - ghsl
+
+<Image src={img_7} alt="ghsl tool" />
+
+### Original in rhino
+
+<Image src={img_8} alt="Original in rhino" />
+
+### Final in rhino
+
+<Image src={img_9} alt="Final in rhino" />
+
+<Flex>
+  <Box>
+    <Image src={img_10} alt="8-1" />
+  </Box>
+  <Box>
+    <Image src={img_11} alt="8-2" />
+  </Box>
+</Flex>
+
+## Process
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_12} alt="normal"/>
+      <figcaption>normal</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_13} alt="ambient+diffuse+specular"/>
+      <figcaption>ambient+diffuse+specular</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_14} alt="+round(clr*layerDiv)/layerDiv"/>
+      <figcaption>+round(clr*layerDiv)/layerDiv</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_15} alt="x = round(clr*layerDiv)/layerDiv"/>
+      <figcaption>x = round(clr*layerDiv)/layerDiv</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_16} alt="pow(1.5,x)"/>
+      <figcaption>pow(1.5,x)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_17} alt="exp(x)"/>
+      <figcaption>exp(x)</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+### Process - oil painting effect
+
+<Flex>
+  <Box>
+    <Image src={img_18} alt="11-1" />
+  </Box>
+  <Box>
+    <Image src={img_19} alt="11-2" />
+  </Box>
+</Flex>
+
+<p style={{ fontSize: '16px', marginTop: '-2%' }}>
+  uv = uv+vec2(fbm(uv*40.0),fbm(uv*20.0))*0.1;
+</p>
+
+### Process - oil painting effect
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_20} alt="normal"/>
+      <figcaption>normal</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_21} alt="normal + fbm"/>
+      <figcaption>normal + fbm</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_22} alt="col = dotval*col"/>
+      <figcaption>col = dotval*col</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_23} alt="col = edgeColor.rbg*(1.0-dotval)+col"/>
+      <figcaption>col = edgeColor.rbg*(1.0-dotval)+col</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+## Concept
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_30} alt="Alla Prima"/>
+      <figcaption>Alla Prima</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_31} alt="second light"/>
+      <figcaption>second light</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+## Tool
+
+<Image src={img_32} alt="Tool" style={{ backgroundColor: 'hsl(var(--color-neutral-900))' }} />
+
+## Workflow
+
+<Image src={img_33} alt="Workflow" style={{ width: '80%', margin: 'auto' }} />
+
+## Setting & To-Do
+
+<Flex>
+  <Box>
+    <Image src={img_34} alt="24-1" />
+  </Box>
+  <Box>
+    <Image src={img_35} alt="24-2" style={{ backgroundColor: 'hsl(var(--color-neutral-900))' }} />
+  </Box>
+</Flex>
+
+## Shadow
+
+<Flex>
+  <Box>
+    <Image src={img_36} alt="25-1" />
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_37} alt="lightdepth"/>
+      <figcaption>lightdepth</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <Image src={img_38} alt="25-3" />
+  </Box>
+</Flex>
+
+## Alla Prima
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_39} alt="reflectDirection"/>
+      <figcaption>reflectDirection<br/>= normalize(reflect(-lightDirection,n));</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_40} alt="if(reflectDirection.y>0.15 && reflectDirection.z<0.1)"/>
+      <figcaption>if(reflectDirection.y&gt;0.15 &amp;&amp; reflectDirection.z&lt;0.1)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_41} alt="col = mix(col, mix(reflect_color.rgb,vec3(fbm(n.xy*8.0)),0.2), 0.35);"/>
+      <figcaption>col = mix(col, mix(reflect_color.rgb,vec3(fbm(n.xy*8.0)),0.2), 0.35);</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_42} alt="light"/>
+      <figcaption>light</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_43} alt="light + layer1"/>
+      <figcaption>light + layer1</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_44} alt="light + layer2"/>
+      <figcaption>light + layer2</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+## Second light
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_45} alt="light"/>
+      <figcaption>light</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_46} alt="second light"/>
+      <figcaption>second light</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_47} alt="second light"/>
+      <figcaption>second light</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_48} alt="reflectDiration_sec"/>
+      <figcaption>reflectDiration_sec<br/>= normalize(reflect(-lightDirection_sec,n_sec));</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_49} alt="reflectDiration_sec_oldn"/>
+      <figcaption>reflectDiration_sec_oldn<br/>= normalize(reflect(-lightDirection_sec,n));</figcaption>
+    </figure>
+  </Box>
+</Flex>
+
+<Flex>
+  <Box>
+    <figure>
+      <Image src={img_50} alt="reflectDiration_sec_oldn"/>
+      <figcaption>reflectDiration_sec_oldn</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_51} alt="if(reflectDiration_sec_oldn.y<0.002 && reflectDiration_sec_oldn.x>0.04)"/>
+      <figcaption>if(reflectDiration_sec_oldn.y&lt;0.002 &amp;&amp;<br/>reflectDiration_sec_oldn.x&gt;0.04)</figcaption>
+    </figure>
+  </Box>
+  <Box>
+    <figure>
+      <Image src={img_52} alt="col = mix(col,color_sec,0.18);"/>
+      <figcaption>col = mix(col,color_sec,0.18);</figcaption>
+    </figure>
+  </Box>
+</Flex>

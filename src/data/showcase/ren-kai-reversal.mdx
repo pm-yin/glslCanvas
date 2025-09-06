@@ -1,0 +1,37 @@
+---
+title: "逆，顯現"
+creator: "劉人愷"
+pubDate: "2022-09-01"
+heroImage: "./images/ren-kai-reversal/0.png"
+demoUrl: "https://www.shadertoy.com/view/mtXGR2"
+---
+import ReactPlayer from 'react-player'
+import { Image } from 'astro:assets';
+import Flex from '@/components/mdx/Flex';
+import Box from '@/components/mdx/Box';
+import Button from '@/components/mdx/Button';
+
+import img from './images/ren-kai-reversal/0.png';
+
+{/* <Button 
+  as="a" 
+  href="https://www.shadertoy.com/view/mtXGR2" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  variant="primary">
+  <>View on ShaderToy</>
+</Button> */}
+
+<Flex>
+  <Box>
+    《逆，顯現》試圖透過天氣變化討論那些可能被隱藏的內心狀態。當周圍空無一人時，作品將呈現陰天。當觀者接近時，會從原先的陰天轉變為晴天；當觀者離開後，又從晴天逐漸轉變回陰天。然而，隨著一次又一次的天氣轉換，陽光並未能融化原先厚重的烏雲，反而越積越多，甚至下雨打雷。不過這或許更接近我們真實的內心狀態，那湛藍的晴天只是在屏蔽當下某個更強烈的、更私密，一種不願被看見的情緒。
+  </Box>
+  <Box>
+    <Image src={img} alt='Hero Image' />
+  </Box>
+</Flex>
+
+<ReactPlayer 
+  src='https://youtu.be/r4oCbazujmY?si=6NNHzxuHbndjaofe'
+  style={{ width: '100%', height: 'auto', aspectRatio: '16/9' }}
+/>

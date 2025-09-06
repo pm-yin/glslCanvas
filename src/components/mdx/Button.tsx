@@ -13,7 +13,7 @@ export default function Button({
   className,
   ...rest
 }: ButtonProps) {
-  const classes = `${styles.button} ${styles[variant]}${className ? " " + className : ""}`;
+  const classes = `button ${styles.button} ${styles[variant]}${className ? " " + className : ""}`;
   if (as === "a") {
     return (
       <a className={classes} {...rest}>
