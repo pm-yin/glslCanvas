@@ -7,6 +7,9 @@ const navItems = {
   [`${base}/craft`]: {
     title: 'Craft',
   },
+  [`${base}/showcase`]: {
+    title: 'Showcase',
+  },
   [`${base}/resources`]: {
     title: 'Resources',
   },
