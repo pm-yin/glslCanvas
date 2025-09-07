@@ -6,7 +6,6 @@ updateDate: "2022-01-01"
 heroImage: './assets/2.png'
 shader:
     src: "glow/imperfect_circle.frag"
-    function: "imperfect_circle(uv, u_time)"
 ---
 
 # Pluto
