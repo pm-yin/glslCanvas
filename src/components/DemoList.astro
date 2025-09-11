@@ -1,12 +1,12 @@
 ---
-import CraftCard from "./CraftCard.astro";
-import styles from "./craft-list.module.scss";
+import DemosCard from "./DemoCard.astro";
+import styles from "./demo-list.module.scss";
 import { getCollection } from "astro:content";
 
-const allCraftPosts = await getCollection("craft");
+const allDemosPosts = await getCollection("demos");
 
 // 依據 id 的第一段分組
-const groupedPosts = allCraftPosts.reduce(
+const groupedPosts = allDemosPosts.reduce(
   (acc, post) => {
     const [category] = post.id.split("/");
     const cat = category || "Uncategorized";
@@ -14,7 +14,7 @@ const groupedPosts = allCraftPosts.reduce(
     acc[cat].push(post);
     return acc;
   },
-  {} as Record<string, typeof allCraftPosts>,
+  {} as Record<string, typeof allDemosPosts>,
 );
 
 const base = import.meta.env.BASE_URL || "/";
@@ -27,11 +27,11 @@ const base = import.meta.env.BASE_URL || "/";
         <h2 class={styles.section_title}>
           {category.charAt(0).toUpperCase() + category.slice(1)}
         </h2>
-        <ul class={styles.list} id={`craft-list-${category}`}>
+        <ul class={styles.list} id={`demos-list-${category}`}>
           {posts.map((post) => (
             <li>
-              <a href={`${base}/craft/${post.id}`}>
-                <CraftCard
+              <a href={`${base}/demos/${post.id}`}>
+                <DemosCard
                   heroImage={post.data.heroImage}
                   title={post.data.title}
                 />

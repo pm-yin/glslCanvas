@@ -9,7 +9,7 @@ import { generateFragmentString } from "./_utils";
 import CodeBlock from "@/components/CodeBlock.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("craft");
+  const posts = await getCollection("demos");
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },

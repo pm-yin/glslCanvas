@@ -3,7 +3,7 @@ import path from 'path';
 import { resolveLygiaAsync } from '@/lib/lygia';
 import type { CollectionEntry } from "astro:content";
 
-type PostShader = CollectionEntry<'craft'>['data']['shader'];
+type PostShader = CollectionEntry<'demos'>['data']['shader'];
 
 export async function generateFragmentString(postShader: PostShader): Promise<string> {
   if (!postShader) return '';
@@ -36,6 +36,5 @@ uniform vec2 u_mouse;
     basedir: "src/shader",
   });
 
-  // console.log('Log from craft/[slug]/utils.ts: ', content);
   return content;
 }

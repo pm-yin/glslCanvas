@@ -1,9 +1,9 @@
 ---
 import Image from "astro/components/Image.astro";
-import styles from "./craft-card.module.scss";
+import styles from "./demo-card.module.scss";
 import type { CollectionEntry } from "astro:content";
 
-const { heroImage, title } = Astro.props as CollectionEntry<"craft">["data"];
+const { heroImage, title } = Astro.props as CollectionEntry<"demos">["data"];
 ---
 
 <div class={styles.container}>

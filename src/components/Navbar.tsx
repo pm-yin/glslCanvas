@@ -4,8 +4,8 @@ import { AlignRight, X } from "lucide-react";
 
 const base = import.meta.env.BASE_URL || "/";
 const navItems = {
-  [`${base}/craft`]: {
-    title: 'Craft',
+  [`${base}/demos`]: {
+    title: 'Demos',
   },
   [`${base}/showcase`]: {
     title: 'Showcase',

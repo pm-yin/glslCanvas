@@ -1,11 +1,11 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from 'astro/loaders';
 
-export const CRAFT_PATH = "src/data/craft";
+export const DEMOS_PATH = "src/data/demos";
 export const SHOWCASE_PATH = "src/data/showcase";
 
-const craft = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: `./${CRAFT_PATH}` }),
+const demos = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: `./${DEMOS_PATH}` }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -33,4 +33,4 @@ const showcase = defineCollection({
     }),
 });
 
-export const collections = { craft, showcase };
+export const collections = { demos, showcase };
