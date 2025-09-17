@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./glsl-canvas.module.scss";
 
 type Props = {
@@ -16,6 +16,28 @@ interface GLSLSandbox {
   canvas: HTMLCanvasElement;
 }
 
+// 將輔助函式移出元件，避免重複宣告
+function setCanvasDisplaySize(
+  container: HTMLDivElement,
+  canvas: HTMLCanvasElement
+) {
+  const rect = container.getBoundingClientRect();
+  canvas.style.width = `${rect.width}px`;
+  canvas.style.height = `${rect.height}px`;
+  return rect;
+}
+
+function setCanvasResolution(
+  canvas: HTMLCanvasElement,
+  rect: DOMRect,
+  pixelRatio: number
+) {
+  const pixelWidth = Math.floor(rect.width * pixelRatio);
+  const pixelHeight = Math.floor(rect.height * pixelRatio);
+  canvas.width = pixelWidth;
+  canvas.height = pixelHeight;
+}
+
 export default function GLSLCanvas({
   fragmentString,
   textures,
@@ -24,72 +46,64 @@ export default function GLSLCanvas({
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sandbox, setSandbox] = useState<GLSLSandbox | null>(null);
+  // 使用 useRef 來存放 sandbox 實例
+  const sandboxRef = useRef<GLSLSandbox | null>(null);
 
+  // --- 主 useEffect ---
   useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!canvas || !container) return;
 
-    // 初始化 shader 前先 resize
-    setCanvasDisplaySize(container, canvas);
-    setCanvasResolution(container, canvas, pixelRatio);
+    let sandbox = sandboxRef.current;
 
-    const loadShader = async (fragmentString: string) => {
-      const { default: GlslCanvas } = await import('glslCanvas');
-      const sandbox = new GlslCanvas(canvas, { pixelRatio });
-      setSandbox(sandbox);
+    // 1. 只在第一次掛載時初始化 glslCanvas
+    if (!sandbox) {
+      const init = async () => {
+        const rect = setCanvasDisplaySize(container, canvas);
+        setCanvasResolution(canvas, rect, pixelRatio);
+
+        const { default: GlslCanvas } = await import('glslCanvas');
+        sandbox = new GlslCanvas(canvas, { pixelRatio });
+        sandboxRef.current = sandbox;
+
+        sandbox.load(fragmentString);
+        if (textures) {
+          updateTextures(sandbox, textures);
+        }
+      };
+      init();
+    } else {
+      // 2. 如果實例已存在，只更新 shader
       sandbox.load(fragmentString);
-      sandbox.resize();
+    }
+
+    // 3. 處理 resize
+    const handleResize = () => {
+      if (!sandboxRef.current) return;
+      const rect = setCanvasDisplaySize(container, canvas);
+      setCanvasResolution(canvas, rect, pixelRatio);
+      sandboxRef.current.resize();
     };
-    loadShader(fragmentString);
-  }, [fragmentString, pixelRatio]);
 
-  useEffect(() => {
-    if (!sandbox) return;
-
-    if (textures) {
-      textures.split(',').forEach((texture, index) => {
-        sandbox.setUniform(`u_tex${index}`, `/assets/craft/${texture}`);
-      });
-    }
-  }, [sandbox, textures])
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const canvas = sandbox?.canvas;
-    if (!canvas || !container) return;
-
-    const rsize = () => {
-      setCanvasDisplaySize(container, canvas);
-      sandbox.resize();
-    }
-
-    window.addEventListener('resize', rsize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', rsize);
+      window.removeEventListener('resize', handleResize);
+      // 可以在此處添加銷毀 sandbox 的邏輯，如果需要的話
     };
-  }, [sandbox])
+  }, [fragmentString, pixelRatio]); // pixelRatio 變更時仍需重新設定解析度
 
-  function setCanvasDisplaySize(
-    container: HTMLDivElement,
-    canvas: HTMLCanvasElement
-  ) {
-    const rect = container.getBoundingClientRect();
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
-  }
+  // --- 更新 Texture 的 useEffect ---
+  useEffect(() => {
+    const sandbox = sandboxRef.current;
+    if (!sandbox || !textures) return;
+    updateTextures(sandbox, textures);
+  }, [textures]);
 
-  function setCanvasResolution(
-    container: HTMLDivElement,
-    canvas: HTMLCanvasElement,
-    pixelRatio: number
-  ) {
-    const rect = container.getBoundingClientRect();
-    const pixelWidth = Math.floor(rect.width * pixelRatio);
-    const pixelHeight = Math.floor(rect.height * pixelRatio);
-    canvas.width = pixelWidth;
-    canvas.height = pixelHeight;
+  function updateTextures(sandbox: GLSLSandbox, textures: string) {
+    textures.split(',').forEach((texture, index) => {
+      sandbox.setUniform(`u_tex${index}`, `/assets/craft/${texture}`);
+    });
   }
 
   return (
