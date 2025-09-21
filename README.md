@@ -9,7 +9,7 @@
 
 ```
 /
-├── public/                # 靜態資源（圖片、JS、favicon 等）
+├── public/                # 靜態資源（圖片、JS、favicon 等）123
 ├── src/
 │   ├── assets/            # Astro 圖片資源
 │   ├── components/        # 共用 React/Astro 元件
